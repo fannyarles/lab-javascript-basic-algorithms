@@ -105,10 +105,53 @@ for (let k = 0 ; k < phraseToCheckArr.length ; k++) {
 
 }
 
+console.log('First method:');
+
 if(palindrome) {
     console.log(`"${phraseToCheck}" is a palindrome!`);
 } else {
     console.log(`"${phraseToCheck}" is definitely NOT a palindrome.`);
 }
 
-//console.log(phraseToCheck);
+
+// John's idea
+
+let phraseToCheck2 = "step on no pets";
+let palindrome2 = false;
+
+// remove spaces (replaceAll) and punctuation (splice)
+phraseToCheck2Arr = phraseToCheck2.replaceAll(' ', '').toLowerCase().split('');
+
+for (let i = 0 ; i < phraseToCheck2Arr.length ; i++) {
+    if (phraseToCheck2Arr[i].toLowerCase() === phraseToCheck2Arr[i].toUpperCase()) {
+        phraseToCheck2Arr.splice(i, 1);
+    }
+}
+
+let partOne;
+let partTwo;
+
+//split in two parts
+if (phraseToCheck2Arr.length % 2 === 0) { // even number of letters
+
+    partOne = phraseToCheck2Arr.slice(0, phraseToCheck2Arr.length/2);
+    partTwo = phraseToCheck2Arr.slice(phraseToCheck2Arr.length/2, phraseToCheck2Arr.length).reverse();
+
+} else {
+
+    partOne = phraseToCheck2Arr.slice(0, Math.floor(phraseToCheck2Arr.length/2)); // plus petite partie
+    partTwo = phraseToCheck2Arr.slice(Math.floor(phraseToCheck2Arr.length/2+1), phraseToCheck2Arr.length).reverse();
+
+}
+
+if (partOne.join('') === partTwo.join('')) {
+    palindrome2 = true;
+}
+
+console.log('\nSecond method:');
+
+if(palindrome2) {
+    console.log(`"${phraseToCheck2}" is a palindrome!`);
+} else {
+    console.log(`"${phraseToCheck2}" is definitely NOT a palindrome.`);
+}
