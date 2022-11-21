@@ -148,7 +148,7 @@ if (partOne.join('') === partTwo.join('')) {
     palindrome2 = true;
 }
 
-console.log('\nSecond method:');
+console.log('\nSecond method:'); 
 
 if(palindrome2) {
     console.log(`"${phraseToCheck2}" is a palindrome!`);
